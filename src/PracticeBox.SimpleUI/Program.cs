@@ -7,6 +7,7 @@ using System.Text;
 using PracticeBox.SimpleUI.Entities;
 using ServiceStack;
 using ServiceStack.OrmLite;
+using ServiceStack.OrmLite.Dapper;
 using ServiceStack.OrmLite.Sqlite;
 
 namespace PracticeBox.SimpleUI
@@ -15,9 +16,21 @@ namespace PracticeBox.SimpleUI
     {
         static void Main(string[] args)
         {
+            OrmLiteTest();
+
+            var db = PetaDbAccess.GetInstance();
+            var list = db.Fetch<dynamic>("select * from Author");
+            var au = db.Single<dynamic>("select * from Author");
+            var au2 = db.FirstOrDefault<dynamic>("select * from Author");
+
+            Console.ReadKey();
+        }
+
+        private static void OrmLiteTest()
+        {
             OrmLiteConfig.DialectProvider = SqliteOrmLiteDialectProvider.Instance;
-            
-			SqlExpression<Author> ev = OrmLiteConfig.DialectProvider.SqlExpression<Author>();
+
+            SqlExpression<Author> ev = OrmLiteConfig.DialectProvider.SqlExpression<Author>();
 
             using (IDbConnection db = GetFileConnectionString().OpenDbConnection())
             {
@@ -25,16 +38,25 @@ namespace PracticeBox.SimpleUI
                 db.CreateTable<Author>();
                 db.DeleteAll<Author>();
 
-                List<Author> authors = new List<Author>();
+                var authors = new List<Author>();
                 authors.Add(new Author()
                 {
-                    Name = "Demis Bellot", 
-                    Birthday = DateTime.Today.AddYears(-20), 
-                    Active = true, Earnings = 99.9m,
-                    Comments = "CSharp books", Rate = 10, City = "London"
+                    Name = "Demis Bellot",
+                    Birthday = DateTime.Today.AddYears(-20),
+                    Active = true,
+                    Earnings = 99.9m,
+                    Comments = "CSharp books",
+                    Rate = 10,
+                    City = "London"
                 });
 
                 db.InsertAll(authors);
+                //db.Where<Author>(o => o.Birthday == "");
+            }
+
+            using (var db = DataManager.Manager.OpenDbConnection(GetFileConnectionString()))
+            {
+
             }
         }
 

@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PracticeBox.SimpleUI", "Pra
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PracticeBox.Entities", "PracticeBox.Entities\PracticeBox.Entities.csproj", "{5F2D16FC-CBA7-41AF-90B3-AA2D059FAECF}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PracticeBox.WebUI", "PracticeBox.WebUI\PracticeBox.WebUI.csproj", "{E336E331-A4FD-45DF-A046-A96E5339BA6C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{5F2D16FC-CBA7-41AF-90B3-AA2D059FAECF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5F2D16FC-CBA7-41AF-90B3-AA2D059FAECF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5F2D16FC-CBA7-41AF-90B3-AA2D059FAECF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E336E331-A4FD-45DF-A046-A96E5339BA6C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E336E331-A4FD-45DF-A046-A96E5339BA6C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E336E331-A4FD-45DF-A046-A96E5339BA6C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E336E331-A4FD-45DF-A046-A96E5339BA6C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
